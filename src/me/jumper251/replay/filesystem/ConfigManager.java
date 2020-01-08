@@ -29,7 +29,7 @@ public class ConfigManager {
 	public static boolean RECORD_CHAT;
 	public static boolean SAVE_STOP, USE_OFFLINE_SKINS, HIDE_PLAYERS, UPDATE_NOTIFY, USE_DATABASE;
 	
-	public static String DEATH_MESSAGE, LEAVE_MESSAGE, CHAT_FORMAT;
+	public static String DEATH_MESSAGE, LEAVE_MESSAGE, CHAT_FORMAT,LANGUAGE;
 	
 	public static void loadConfigs() {
 		if(!sqlFile.exists()){
@@ -53,7 +53,9 @@ public class ConfigManager {
 			cfg.set("general.use_offline_skins", true);
 			cfg.set("general.hide_players", false);
 			cfg.set("general.update_notifications", true);
-			
+			cfg.set("general.language","english");
+
+
 			cfg.set("general.death_message", "&6{name} &7died.");
 			cfg.set("general.quit_message", "&6{name} &7left the game.");
 
@@ -85,6 +87,7 @@ public class ConfigManager {
 		HIDE_PLAYERS = cfg.getBoolean("general.hide_players");
 		UPDATE_NOTIFY = cfg.getBoolean("general.update_notifications");
 		if (initial ) USE_DATABASE = cfg.getBoolean("general.use_mysql");
+		LANGUAGE = cfg.getString("general.language");
 
 		DEATH_MESSAGE = cfg.getString("general.death_message");
 		LEAVE_MESSAGE = cfg.getString("general.quit_message");
