@@ -1,13 +1,9 @@
 package me.jumper251.replay.listener;
 
-
-
 import java.util.Arrays;
 
 
-
-
-
+import me.jumper251.replay.utils.LanguageManager;
 import org.bukkit.Chunk;
 
 import org.bukkit.entity.Player;
@@ -287,7 +283,7 @@ public class ReplayListener extends AbstractListener {
 		
 		if(ConfigManager.UPDATE_NOTIFY){
 			if(ReplaySystem.updater.isVersionAvailable() && p.hasPermission("replay.admin")){
-				p.sendMessage(ReplaySystem.PREFIX + "An update is available: https://www.spigotmc.org/resources/advancedreplay-1-8-1-15.52849/");
+				p.sendMessage(ReplaySystem.PREFIX + LanguageManager.languageCfg.getString("update_available") + "https://www.spigotmc.org/resources/advancedreplay-1-8-1-15.52849/");
 			}
 		}
 	}

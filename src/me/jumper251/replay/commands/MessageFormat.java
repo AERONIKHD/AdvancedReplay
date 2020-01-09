@@ -1,6 +1,9 @@
 package me.jumper251.replay.commands;
 
 import me.jumper251.replay.filesystem.MessageBuilder;
+import me.jumper251.replay.utils.LanguageManager;
+
+import static me.jumper251.replay.utils.LanguageManager.languageCfg;
 
 public class MessageFormat {
 
@@ -48,7 +51,7 @@ public class MessageFormat {
 	}
 	
 	public String getConsoleMessage() {
-		return consoleMessage != null ? consoleMessage : "You must be a player to execute this command.";
+		return consoleMessage != null ? consoleMessage :  languageCfg.getString("you_must_be_player");
 	}
 	
 	public String getPermissionMessage() {

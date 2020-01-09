@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
+import me.jumper251.replay.utils.LanguageManager;
+import org.apache.commons.codec.language.bm.Lang;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -90,13 +92,14 @@ public class ItemConfig {
 	}
 	
 	private static void addDefaults() {
+		FileConfiguration lang = LanguageManager.languageCfg;
 		items.put(ItemConfigType.TELEPORT, new ItemConfigOption(Material.COMPASS, "&7Teleport", 0));
-		items.put(ItemConfigType.SPEED, new ItemConfigOption(Material.WATCH, "&cSlow &8[&eRight&8] &aFast &8[&eShift Right&8]", 1));
-		items.put(ItemConfigType.LEAVE, new ItemConfigOption(Material.WOOD_DOOR, "&7Leave replay", 8));
-		items.put(ItemConfigType.FORWARD, new ItemConfigOption(Material.SKULL_ITEM, "&a» &e10 seconds", 5, "MHF_ArrowRight", 3));
-		items.put(ItemConfigType.BACKWARD, new ItemConfigOption(Material.SKULL_ITEM, "&c« &e10 seconds", 3, "MHF_ArrowLeft", 3));
-		items.put(ItemConfigType.RESUME, new ItemConfigOption(Material.SLIME_BLOCK, "&aResume", 4));
-		items.put(ItemConfigType.PAUSE, new ItemConfigOption(Material.SKULL_ITEM, "&cPause", 4, "Push_red_button", 3));
+		items.put(ItemConfigType.SPEED, new ItemConfigOption(Material.WATCH, "&c"+ lang.getString("slow") + " &8[&e"+lang.getString("right")+"&8] &a"+lang.getString("fast")+" &8[&e"+lang.getString("shift_right")+"&8]", 1));
+		items.put(ItemConfigType.LEAVE, new ItemConfigOption(Material.WOOD_DOOR, "&7"+ lang.getString("leave_replay"), 8));
+		items.put(ItemConfigType.FORWARD, new ItemConfigOption(Material.SKULL_ITEM, "&a» &e10 " + lang.getString("seconds") , 5, "MHF_ArrowRight", 3));
+		items.put(ItemConfigType.BACKWARD, new ItemConfigOption(Material.SKULL_ITEM, "&c« &e10 "+ lang.getString("seconds"), 3, "MHF_ArrowLeft", 3));
+		items.put(ItemConfigType.RESUME, new ItemConfigOption(Material.SLIME_BLOCK, "&a"+ lang.getString("resume"), 4));
+		items.put(ItemConfigType.PAUSE, new ItemConfigOption(Material.SKULL_ITEM, "&c"+lang.getString("pause") , 4, "Push_red_button", 3));
 
 	}
 	
